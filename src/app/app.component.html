@@ -1,30 +1,47 @@
-<style>
+<!-- The outer components shall control the padding, size and display -->
 
+<style>
   .main {
     display: flex;
     flex-direction: column;
+    gap: 1em;
+    height: 100%;
+    width: 100%;
   }
 
-  .navigation {
-    background-color: #C61F1F;
-    padding: 1em;
-    border-radius: 1em;
+  .mainNavigationMenu {
+    width: 100%;
+    height: 20%;
+  }
+
+  .mainClientInformation {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
+    width: 100%;
+    height: 80%;
   }
 
+  .clientInfoOne {
+    width: 50%;
+    height: 100%;
+  }
+
+  .clientInfoTwo {
+    width: 50%;
+    height: 100%;
+  }
 </style>
 
-<div class="main">
-  <div class="navigation">
-    <button>home</button>
-    <button>clients</button>
-    <button>products</button>
-    <button>about</button>
+<div class="main" style="background-color: #EE7517;">
+  <div class="mainNavigationMenu" style="background-color: yellow;">
+    <app-navigation-menu></app-navigation-menu>
   </div>
-  <div>
-
+  <div class="mainClientInformation">
+    <div class="clientInfoOne" style="background-color: blue;">
+      <app-user-card></app-user-card>
+    </div>
+    <div class="clientInfoTwo" style="background-color: green;">
+      <app-user-list></app-user-list>
+    </div>
   </div>
 </div>
