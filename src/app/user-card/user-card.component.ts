@@ -2,8 +2,51 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-user-card',
-  templateUrl: './user-card.component.html',
-  styleUrls: ['./user-card.component.css']
+  template: `
+  <div class="mainDiv">
+    <div class="userCard">
+        <div class="photo">
+
+        </div>
+        <ul class="infoList">
+            <li>Name</li>
+            <li>Email</li>
+            <li>Phone</li>
+        </ul>
+    </div>
+</div>
+  `,
+  styles: [
+    `
+    .mainDiv {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+    }
+
+    .userCard {
+        border-radius: 1em;
+        border: 1px solid black;
+        background-color: white;
+        gap: 1em;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-end;
+        width: 25%;
+        height: 50%;
+    }
+
+    .infoList {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+    }
+    `
+  ]
 })
 export class UserCardComponent implements OnInit {
 

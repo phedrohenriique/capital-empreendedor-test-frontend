@@ -1,10 +1,39 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { database } from '../database/database';
 
 @Component({
   selector: 'app-user-list',
-  templateUrl: './user-list.component.html',
-  styleUrls: ['./user-list.component.css']
+  template: `
+  <div class="mainDiv">
+    <div *ngFor="let user of users" class="userInfo" (click)="clicked()">
+        <p>Name : {{user.name}} </p>
+    </div>
+  </div>
+`,
+  styles: [`
+    .mainDiv {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        gap: 1em;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .userInfo {
+        border-radius: 5em;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        gap: 1em;
+        border: 1px solid black;
+        background-color: white;
+        height: fit-content;
+        width: 90%;
+    }
+  `]
 })
 export class UserListComponent implements OnInit {
   // this is where we can implement javascript logic
@@ -12,11 +41,29 @@ export class UserListComponent implements OnInit {
 
   users = database.users
 
-  constructor() { }
+  // constructor we specify attributes of the class when we
+  // instantiate, it is the function running at creation x = new Class() --> constructor()
 
-// logic that happens when the component is rendered
-ngOnInit(): void {
-  console.log(this.users)
-}
+  constructor() {
+  }
+  // we can set all method of the class
+
+  clicked(): void {
+    console.log("i was clicked")
+  }
+
+  @Input() variable: any = ''
+
+  showProp(): void {
+    console.log(this.variable)
+  }
+
+  // logic that happens when the component is rendered
+  // similar to useEffect() in React
+
+  ngOnInit(): void {
+    console.log(this.users)
+    this.showProp()
+  }
 
 }
