@@ -1,46 +1,58 @@
-{
-    "users": {
-        "cliente1@example.com": {
-            "name": "Cliente 1",
-            "email": "cliente1@example.com",
-            "isActive": true,
-            "phone": "(19) 99999-9999",
-            "revenue": 1000000,
-            "agreedTerms": true
+type DatabaseProps = {
+    users: {
+        name: string,
+        email: string,
+        isActive: boolean,
+        phone : string,
+        revenue: number,
+        agreedTerms: boolean
+    }[]
+    opportunities: {}
+}
+
+export const database: DatabaseProps = {
+    users: [
+        {
+            name: "Cliente 1",
+            email: "cliente1@example.com",
+            isActive: true,
+            phone: "(19) 99999-9999",
+            revenue: 1000000,
+            agreedTerms: true
         },
-        "cliente2@example.com": {
-            "name": "Cliente 2",
-            "email": "cliente2@example.com",
-            "isActive": true,
-            "phone": "(19) 91111-1111",
-            "revenue": 550000,
-            "agreedTerms": false
+        {
+            name: "Cliente 2",
+            email: "cliente1@example.com",
+            isActive: true,
+            phone: "(19) 99999-9999",
+            revenue: 1000000,
+            agreedTerms: true
         },
-        "cliente3@example.com": {
-            "name": "Cliente 3",
-            "email": "cliente3@example.com",
-            "isActive": true,
-            "phone": "(11) 92222-2222",
-            "revenue": 150000,
-            "agreedTerms": true
+        {
+            name: "Cliente 3",
+            email: "cliente1@example.com",
+            isActive: true,
+            phone: "(19) 99999-9999",
+            revenue: 1000000,
+            agreedTerms: true
         },
-        "cliente4@example.com": {
-            "name": "Cliente 4",
-            "email": "cliente4@example.com",
-            "isActive": false,
-            "phone": "(19) 99999-3333",
-            "revenue": 10000000,
-            "agreedTerms": true
+        {
+            name: "Cliente 4",
+            email: "cliente1@example.com",
+            isActive: true,
+            phone: "(19) 99999-9999",
+            revenue: 1000000,
+            agreedTerms: true
         },
-        "cliente5@example.com": {
-            "name": "Cliente 5",
-            "email": "cliente5@example.com",
-            "isActive": true,
-            "phone": "(19) 99999-4444",
-            "revenue": 350000,
-            "agreedTerms": false
+        {
+            name: "Cliente 5",
+            email: "cliente1@example.com",
+            isActive: true,
+            phone: "(19) 99999-9999",
+            revenue: 1000000,
+            agreedTerms: true
         }
-    },
+    ],
     "opportunities": {
         "cliente1@example.com": {
             "opportunities": [
