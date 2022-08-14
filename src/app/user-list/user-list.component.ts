@@ -1,11 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { database } from '../database/database';
 
 @Component({
   selector: 'app-user-list',
   template: `
   <div class="mainDiv">
-    <div *ngFor="let user of users" class="userInfo" (click)="clicked()">
+    <div *ngFor="let user of users" class="userInfo" (click)="clicked(user)">
         <p>Name : {{user.name}} </p>
     </div>
   </div>
@@ -38,7 +38,6 @@ import { database } from '../database/database';
 export class UserListComponent implements OnInit {
   // this is where we can implement javascript logic
 
-
   users = database.users
 
   // constructor we specify attributes of the class when we
@@ -48,22 +47,21 @@ export class UserListComponent implements OnInit {
   }
   // we can set all method of the class
 
-  clicked(): void {
+
+
+  @Output() userClicked = new EventEmitter();
+
+  clicked(user: any): void {
     console.log("i was clicked")
+    console.log(`the user ${user.name} was clicked`)
+    this.userClicked.emit(user)
   }
 
-  @Input() variable: any = ''
-
-  showProp(): void {
-    console.log(this.variable)
-  }
 
   // logic that happens when the component is rendered
   // similar to useEffect() in React
 
   ngOnInit(): void {
-    console.log(this.users)
-    this.showProp()
   }
 
 }

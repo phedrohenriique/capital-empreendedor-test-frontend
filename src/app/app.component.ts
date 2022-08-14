@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app',
   template: `
   <div class="main" style="background-color: #EE7517;">
   <div class="mainNavigationMenu" style="background-color: yellow;">
@@ -9,11 +9,11 @@ import { Component } from '@angular/core';
   </div>
   <div class="mainClientInformation">
     <div class="clientInfoOne" style="background-color: blue;">
-      <app-user-card></app-user-card>
+      <app-user-card [userData]="userData" ></app-user-card>
     </div>
     <div class="clientInfoTwo" style="background-color: green;">
       <!-- the variables used in component shall be difined inside the used class -->
-      <app-user-list [variable]="variable"></app-user-list>
+      <app-user-list (userClicked)="user($event)" ></app-user-list>
     </div>
   </div>
 </div>
@@ -50,7 +50,21 @@ import { Component } from '@angular/core';
   }
   `]
 })
+
 export class AppComponent {
-  title = 'capital-empreendedor-test-frontend';
-  variable = "variable";
+
+  userData = {
+    name : '',
+    email: '',
+    phone: ''
+
+  }
+  
+  user(user: any): any {
+    this.userData = user
+    console.log("data in parent",this.userData)
+  }
+
+  
+
 }

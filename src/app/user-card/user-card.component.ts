@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { database } from '../database/database';
 
 @Component({
   selector: 'app-user-card',
@@ -8,10 +9,10 @@ import { Component, OnInit } from '@angular/core';
         <div class="photo">
 
         </div>
-        <ul class="infoList">
-            <li>Name</li>
-            <li>Email</li>
-            <li>Phone</li>
+        <ul  class="infoList">
+            <li>Name : {{userData.name}}</li>
+            <li>Email : {{userData.email}}</li>
+            <li>Phone : {{userData.phone}}</li>
         </ul>
     </div>
 </div>
@@ -52,7 +53,14 @@ export class UserCardComponent implements OnInit {
 
   constructor() { }
 
+  @Input() userData = {
+    name: 'client 1',
+    email: ' client_1@gmail.com',
+    phone: '99 99999 9999'
+  }
+
   ngOnInit(): void {
   }
+
 
 }
