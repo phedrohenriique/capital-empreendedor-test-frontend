@@ -7,6 +7,8 @@ import { database } from '../database/database';
   <div class="mainDiv">
     <div *ngFor="let user of users" class="userInfo" (click)="clicked(user)">
         <p>Name : {{user.name}} </p>
+        <p>Email : {{user.email}}</p>
+        <p>Phone : {{user.phone}}</p>
     </div>
   </div>
 `,
@@ -22,16 +24,23 @@ import { database } from '../database/database';
     }
 
     .userInfo {
+        padding-right: 1em;
+        padding-left: 1em;
         border-radius: 5em;
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: space-around;
         gap: 1em;
-        border: 1px solid black;
         background-color: white;
         height: fit-content;
         width: 90%;
+    }
+
+    .userInfo:hover{
+      transition: 0.5s;
+      transform: scale(1.05);
+      cursor: pointer;
     }
   `]
 })

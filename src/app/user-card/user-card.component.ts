@@ -29,15 +29,15 @@ import { database } from '../database/database';
     }
 
     .userCard {
+        padding: 1em;
         border-radius: 1em;
-        border: 1px solid black;
         background-color: white;
         gap: 1em;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-end;
-        width: 25%;
+        width: fit-content;
         height: 50%;
     }
 

@@ -4,14 +4,14 @@ import { Component } from '@angular/core';
   selector: 'app',
   template: `
   <div class="main" style="background-color: #EE7517;">
-  <div class="mainNavigationMenu" style="background-color: yellow;">
+  <div class="mainNavigationMenu">
     <app-navigation-menu></app-navigation-menu>
   </div>
   <div class="mainClientInformation">
-    <div class="clientInfoOne" style="background-color: blue;">
+    <div class="clientInfoOne">
       <app-user-card [userData]="userData" ></app-user-card>
     </div>
-    <div class="clientInfoTwo" style="background-color: green;">
+    <div class="clientInfoTwo">
       <!-- the variables used in component shall be difined inside the used class -->
       <app-user-list (userClicked)="user($event)" ></app-user-list>
     </div>

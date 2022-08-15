@@ -2,16 +2,16 @@
 
 
 h1 {
-    color: #369;
+    
     font-family: Arial, Helvetica, sans-serif;
     font-size: 250%;
 }
 
 h2,
 h3 {
-    color: #444;
+    
     font-family: Arial, Helvetica, sans-serif;
-    font-weight: lighter;
+    font-weight: bold;
 }
 
 body {
@@ -29,11 +29,10 @@ button {
 }
 
 button {
-    border: 1px solid black;
+    border: none;
     background-color: #eee;
     border-radius: 10px;
     cursor: pointer;
-    color: black;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     font-size: medium;
@@ -44,12 +43,14 @@ button {
 }
 
 button:hover {
-    background-color: black;
-    color: white;
+    transition: 0.25s;
+    transform: scale(1.1);
+    color: #333;
 }
 
 button:active {
-    background-color: #00000080;
+    background-color: #EEB267;
+    color: #333;
 }
 
 button:disabled {
