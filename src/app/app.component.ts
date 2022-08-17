@@ -9,11 +9,11 @@ import { Component } from '@angular/core';
   </div>
   <div class="mainClientInformation">
     <div class="clientInfoOne">
-      <app-user-card [userData]="userData" ></app-user-card>
+      <app-user-card [userData]="userData" [purchaseData]="purchaseData" ></app-user-card>
     </div>
     <div class="clientInfoTwo">
       <!-- the variables used in component shall be difined inside the used class -->
-      <app-user-list (userClicked)="user($event)" ></app-user-list>
+      <app-user-list (userClicked)="user($event)" (userPurchases)="purchases($event)" ></app-user-list>
     </div>
   </div>
 </div>
@@ -54,17 +54,34 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
   userData = {
-    name : '',
+    name: '',
     email: '',
     phone: ''
 
   }
-  
-  user(user: any): any {
-    this.userData = user
-    console.log("data in parent",this.userData)
+
+  purchaseData = {
+    name: "",
+    limit: 0,
+    interest: 0,
+    term: 0,
+    isActive: false
   }
 
-  
+  constructor() {
+    this.userData
+  }
+
+  user(user: any): any {
+    this.userData = user
+    console.log("user in parent : ", this.userData.name)
+  }
+
+  purchases(purchases:any) : any {
+    this.purchaseData = purchases
+    console.log(" purchases in parent : ", this.purchaseData)
+  }
+
+
 
 }
