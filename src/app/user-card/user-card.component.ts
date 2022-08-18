@@ -3,7 +3,6 @@ import {
   Input,
   OnInit
 } from '@angular/core';
-import database from '../database/data.json'
 
 @Component({
   selector: 'app-user-card',
@@ -17,11 +16,11 @@ import database from '../database/data.json'
       >
     </app-modal-basic>
     <h2 class="title">Client Information</h2>
-    <div class="userCard">
+    <div *ngIf="showCard" class="userCard">
         <div class="photo">
 
         </div>
-        <ul  class="infoList">
+        <ul class="infoList">
             <li>Name : {{userData.name}}</li>
             <li>Email : {{userData.email}}</li>
             <li>Phone : {{userData.phone}}</li>
@@ -57,14 +56,14 @@ import database from '../database/data.json'
     }
 
     .userCard {
-        padding: 1.5em;
+        padding: 2em;
         border-radius: 1em;
         background-color: white;
         gap: 1em;
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
-        justify-content: flex-end;
+        align-items: center;
+        justify-content: space-around;
         width: fit-content;
         height: fit-content;
     }
@@ -76,10 +75,12 @@ import database from '../database/data.json'
     }
 
     .products {
-      width: fit-content;
+      width: 100%;
       display: flex;
       flex-direction:column;
       border-radius: 10px;
+      border: 2px solid #EE7517;
+      padding: 1em;
     }
 
     .products:hover{
@@ -94,18 +95,17 @@ import database from '../database/data.json'
 })
 export class UserCardComponent implements OnInit {
 
-  @Input() userData: any
-  @Input() purchaseData: any
+  @Input() userData: any;
+  @Input() purchaseData: any;
+  @Input() showCard: boolean = false;
 
-  differ : any; // setting the variable type to be anything and doesnt need to be declared
-  purchases = Object.entries(database.purchases)
-  purchasesUserArray = [{}]
-  totalProducts = this.purchasesUserArray.length
-  show = false
+  show: any = false
+  userDataAux: any;
 
   constructor() {
     this.userData
     this.purchaseData
+    this.userDataAux = this.userData
   }
 
   showModal(show: any): void {

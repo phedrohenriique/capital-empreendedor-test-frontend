@@ -1,14 +1,7 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import database from '../database/data.json'
+import { DatabaseService } from '../services/database.service';
 
-export type UserProps = {
-  name: string
-  email: string,
-  isActive: boolean,
-  phone: string,
-  revenue: number,
-  agreedTerms: boolean
-}
+import { UsersProps, PurchasesProps } from '../types/types';
 
 @Component({
   selector: 'app-user-list',
@@ -63,41 +56,57 @@ export type UserProps = {
       transform: scale(1.05);
       cursor: pointer;
     }
-  `]
+  `],
+  //providers: [DatabaseService]
 })
 export class UserListComponent implements OnInit {
   // this is where we can implement javascript logic
 
-  // transforming json file (data) into array of values to iterate
-  users = Object.values(database.users)
-  purchases = Object.entries(database.purchases)
-  //purchasesArray = Object.entries(database.purchases)
+  users: UsersProps = [{ name: '', email: '', isActive: false, phone: '', ravenue: 0, agreedTerms: false }];
+  purchases: any;
+  purchasesEntries: any;
 
-  // constructor we specify attributes of the class when we
-  // instantiate, it is the function running at creation x = new Class() --> constructor()
+  // use auxiliary variables to manipulate fetch data from server
 
-  constructor() {
+  constructor(private service: DatabaseService) {
   }
-  // we can set all method of the class
 
   @Output() userClicked = new EventEmitter();
   @Output() userPurchases = new EventEmitter();
+  @Output() showCard = new EventEmitter();
 
-  clicked(user: UserProps): void {
-    console.log(`the user ${user.name} was clicked`)
+  clicked(user: any): void {
+    this.showCard.emit(true)
     this.userClicked.emit(user)
-    for (const tuple of this.purchases) {
-      if(tuple[0] === user.email){
+    this.purchasesEntries = Object.entries(this.purchases)
+    for (const tuple of this.purchasesEntries) {
+      if (tuple[0] === user.email) {
+        console.log(tuple[1].products)
         this.userPurchases.emit(tuple[1].products)
       }
     }
+
   }
 
-  // logic that happens when the component is rendered
-  // similar to useEffect() in React
+  dataUsers() {
+    this.service.usersList().subscribe((response) => {
+      console.log("response users subscribe : ", response)
+      this.users = Object.values(response)
+    }) // observable data streaming
+  }
+
+  dataPurchases() {
+    this.service.purchasesList().subscribe((response: any) => {
+      console.log("response purchases subscribe : ", response)
+      this.purchases = response
+    })
+  }
+
+
 
   ngOnInit(): void {
-
+    this.dataUsers()
+    this.dataPurchases()
   }
 
 }

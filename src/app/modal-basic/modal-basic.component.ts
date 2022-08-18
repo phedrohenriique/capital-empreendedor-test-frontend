@@ -1,11 +1,14 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { PurchasesProps } from '../types/types';
 
 @Component({
   selector: 'app-modal-basic',
   template: `
     <div class="mainDiv" (click)="close();">
       <div class="modalDiv" (click)="show(); $event.stopPropagation();">
-        <h2>Products List</h2>
+        <div class="modalTitle">
+          <h2>Products List</h2><button class="closeButton" (click)="close()">X</button>
+        </div>
         <div *ngFor="let product of products" class="productInfo">
           <p>Type : {{product.name}}</p>
           <p>Cost : {{product.limit}}</p>
@@ -28,6 +31,22 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
     flex-direction: row;
     align-items: center;
     justify-content: center;
+  }
+
+  .modalTitle {
+    display:flex;
+    flex-direction: row;
+    align-items:center;
+    justify-content:center;
+    gap:1em;
+    width: 100%;
+  }
+
+  .closeButton {
+    position:relative;
+    top:0px;
+    right:0px;
+    left: 250px;
   }
 
   .modalDiv {
@@ -67,21 +86,7 @@ export class ModalBasicComponent implements OnInit {
 
   @Output() showFalse = new EventEmitter();
   @Output() showTrue = new EventEmitter();
-  @Input() products = [
-    // {
-    //   name: '',
-    //   cost: 0,
-    //   quantity: 0,
-    //   delivered : false,
-
-    // }
-    {
-      name: '',
-      limit: 0,
-      term: 0,
-      isActive: false
-    }
-  ]
+  @Input() products = [{ name: '', limit: 0, term: 0, isActive: false }];
 
   constructor() { }
 
@@ -91,7 +96,6 @@ export class ModalBasicComponent implements OnInit {
 
   show(): void {
     this.showTrue.emit(true)
-    console.log("inside modal : ", this.products)
   }
 
   ngOnInit(): void {
