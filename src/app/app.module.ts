@@ -13,6 +13,7 @@ import { ModalBasicComponent } from './modal-basic/modal-basic.component';
 import { DatabaseService } from './services/database.service';
 import { HomePageComponent } from './pages/home/home-page.component';
 import { ClientPageComponent } from './pages/clients/client-page.component';
+import { ProductsPageComponent } from './pages/products/products-page.component';
 
 // page componentes shall be used as import modules for
 // a better code visualization and understanding
@@ -27,6 +28,7 @@ import { ClientPageComponent } from './pages/clients/client-page.component';
     ModalBasicComponent,
     HomePageComponent,
     ClientPageComponent,
+    ProductsPageComponent,
   ],
   imports: [
     BrowserModule,

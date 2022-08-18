@@ -5,10 +5,10 @@ import { Component, OnInit } from '@angular/core';
   template: `
   <div class="mainDiv">
     <nav class="navigation">
-        <a href="/"><button>home</button></a>
-        <a href="/clients"><button>clients</button></a>
-        <a href="/products"><button>products</button></a>
-        <a href="/about"><button>about</button></a>
+        <a href="/"><button class="navigationButton">home</button></a>
+        <a href="/clients"><button class="navigationButton">clients</button></a>
+        <a href="/products"><button class="navigationButton">products</button></a>
+        <a href="/about"><button class="navigationButton">about</button></a>
     </nav>
 </div>
   `,
@@ -17,13 +17,17 @@ import { Component, OnInit } from '@angular/core';
         padding: 1em;
     }
     .navigation {
-        background-color: #C61F1F;
+        background-color: white;
         padding: 1em;
         border-radius: 1em;
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: space-around;
+    }
+
+    .navigationButton {
+      border: 2px solid #EE7517
     }
 
   `]
