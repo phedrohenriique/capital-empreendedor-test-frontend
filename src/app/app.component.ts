@@ -17,7 +17,10 @@ import { User, PurchasesProps } from './types/types';
       ></app-user-card>
     </div>
     <div class="clientInfoTwo">
+
       <!-- the variables used in component shall be difined inside the used class -->
+      <!-- can use block html scope variables with #variable and implement ngModules for logic -->
+
       <app-user-list 
       (userClicked)="user($event)" 
       (userPurchases)="purchases($event)" 
@@ -63,6 +66,9 @@ import { User, PurchasesProps } from './types/types';
 })
 
 export class AppComponent {
+
+  // app root component is handling all the variables so it can pass to other components and
+  // update its data, sinc it is a simple application
 
   userData: User = { name: '', email: '', isActive: false, phone: '', ravenue: 0, agreedTerms: false };
   purchaseData: PurchasesProps = [{ name: '', limit: 0, term: 0, isActive: false }];

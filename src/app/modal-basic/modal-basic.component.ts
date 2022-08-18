@@ -84,6 +84,8 @@ import { PurchasesProps } from '../types/types';
 })
 export class ModalBasicComponent implements OnInit {
 
+  // event emitters to handle the modal showing in another component
+
   @Output() showFalse = new EventEmitter();
   @Output() showTrue = new EventEmitter();
   @Input() products = [{ name: '', limit: 0, term: 0, isActive: false }];

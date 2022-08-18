@@ -5,7 +5,9 @@ import { HttpClient } from "@angular/common/http";
     providedIn: 'root'
 })
 export class DatabaseService implements OnInit {
+
     // class only used for requests 
+    // we can define the HttpClient instance to be used and returned
 
     readonly apiURL: string = "http://localhost:8800";
 

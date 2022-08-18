@@ -40,7 +40,7 @@ import {
         flex-direction: column;
         align-items: center;
         justify-content: flex-start;
-        width: 100%;
+        width: 90%;
         height: 100%;
     }
 
@@ -95,17 +95,15 @@ import {
 })
 export class UserCardComponent implements OnInit {
 
+  // all data recieved from clicked event in another component and passed through parent component
+
   @Input() userData: any;
   @Input() purchaseData: any;
   @Input() showCard: boolean = false;
 
   show: any = false
-  userDataAux: any;
 
   constructor() {
-    this.userData
-    this.purchaseData
-    this.userDataAux = this.userData
   }
 
   showModal(show: any): void {

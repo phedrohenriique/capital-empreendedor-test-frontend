@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { DatabaseService } from '../services/database.service';
 
-import { UsersProps, PurchasesProps } from '../types/types';
+import { UsersProps } from '../types/types';
 
 @Component({
   selector: 'app-user-list',
@@ -17,7 +17,7 @@ import { UsersProps, PurchasesProps } from '../types/types';
 `,
   styles: [`
     .mainDiv {
-        width: 100%;
+        width: 90%;
         height: 100%;
         display: flex;
         gap: 1em;
@@ -64,9 +64,14 @@ export class UserListComponent implements OnInit {
 
   users: UsersProps = [{ name: '', email: '', isActive: false, phone: '', ravenue: 0, agreedTerms: false }];
   purchases: any;
-  purchasesEntries: any;
 
   // use auxiliary variables to manipulate fetch data from server
+  // observer of fetched data can be used
+
+  // users$
+  // purchases$
+
+  purchasesEntries: any;
 
   constructor(private service: DatabaseService) {
   }
@@ -105,6 +110,11 @@ export class UserListComponent implements OnInit {
 
 
   ngOnInit(): void {
+
+    // all logic of services intializing with component rendering after it constructs
+    // for better performance a Observer and variable | async pipe shall be used
+    // avoid memory leak and performance improved
+
     this.dataUsers()
     this.dataPurchases()
   }
