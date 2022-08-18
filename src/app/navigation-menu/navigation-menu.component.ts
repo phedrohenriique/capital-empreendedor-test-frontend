@@ -5,10 +5,10 @@ import { Component, OnInit } from '@angular/core';
   template: `
   <div class="mainDiv">
     <nav class="navigation">
-        <button>home</button>
-        <button>clients</button>
-        <button>products</button>
-        <button>about</button>
+        <a href="/"><button>home</button></a>
+        <a href="/clients"><button>clients</button></a>
+        <a href="/products"><button>products</button></a>
+        <a href="/about"><button>about</button></a>
     </nav>
 </div>
   `,

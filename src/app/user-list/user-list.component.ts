@@ -44,11 +44,12 @@ import { UsersProps } from '../types/types';
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: flex-start;
+        justify-content: space-around;
         gap: 1em;
         background-color: white;
         height: fit-content;
         width: 90%;
+        font-size: 0.75em;
     }
 
     .userInfo:hover{

@@ -4,7 +4,7 @@ import { PurchasesProps } from '../types/types';
 @Component({
   selector: 'app-modal-basic',
   template: `
-    <div class="mainDiv" (click)="close();">
+    <div class="mainBackgroundDiv" (click)="close();">
       <div class="modalDiv" (click)="show(); $event.stopPropagation();">
         <div class="modalTitle">
           <h2>Products List</h2><button class="closeButton" (click)="close()">X</button>
@@ -19,18 +19,20 @@ import { PurchasesProps } from '../types/types';
     </div>
   `,
   styles: [`
-  .mainDiv{
-    position: absolute;
+  .mainBackgroundDiv{
+    position: fixed;
     top: 0px;
     left: 0px;
-    width: 100vw;
-    height: 100vh;
     background-color: #62626280;
     z-index: 10;
     display:flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    
   }
 
   .modalTitle {
@@ -59,7 +61,9 @@ import { PurchasesProps } from '../types/types';
     min-height: 60vh;
     background-color: white;
     border-radius: 10px;
-    gap: 1em
+    gap: 1em;
+
+    -webkit-transition: -webkit-transform 0.25s ease-in;
   }
 
   .productInfo {
