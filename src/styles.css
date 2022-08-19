@@ -1,1 +1,85 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+h1 {
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 250%;
+}
+
+h2,
+h3 {
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-width: 100vw;
+    min-height: 100vh;
+}
+
+body,
+input[type="text"],
+button {
+    color: #333;
+    font-family: Cambria, Georgia, serif;
+}
+
+button {
+    border: none;
+    background-color: #eee;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: medium;
+    padding: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+button:hover {
+    transition: 0.25s;
+    transform: scale(1.1);
+    color: #333;
+}
+
+button:active {
+    background-color: #D0D0D0;
+    color: #333;
+}
+
+button:disabled {
+    background-color: #eee;
+    color: #aaa;
+    cursor: auto;
+}
+
+input {
+    border: 2px solid #EE7517;
+    border-radius: 0.5em;
+    height: 2em;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: medium;
+    color: #333;
+}
+
+input:hover{
+    background-color: #FFCE88;
+}
+
+input:focus {
+    outline: none !important;
+}
+
+
+/* everywhere else */
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
