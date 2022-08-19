@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { User, PurchasesProps } from './types/types';
 
 @Component({
   selector: 'app',

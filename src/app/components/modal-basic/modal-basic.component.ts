@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { PurchasesProps } from '../types/types';
+import { PurchasesProps } from '../../types/types';
 
 @Component({
   selector: 'app-modal-basic',

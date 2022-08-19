@@ -1,4 +1,4 @@
-import { Component, Injectable, OnInit } from "@angular/core";
+import { Injectable, OnInit } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 
 @Injectable({
@@ -24,12 +24,12 @@ export class DatabaseService implements OnInit {
 
     usersInfo(email: string) {
         const data = { email: email }
-        return this.http.post(`${this.apiURL}/users/user_email`, data)
+        return this.http.post(`${this.apiURL}/users/user`, data)
     }
 
     usersPurchases(email: string) {
         const data = { email: email }
-        return this.http.post(`${this.apiURL}/purchases/user_email`, data)
+        return this.http.post(`${this.apiURL}/purchases/user`, data)
     }
 
     ngOnInit(): void {

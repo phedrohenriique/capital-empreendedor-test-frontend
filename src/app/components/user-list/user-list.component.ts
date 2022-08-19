@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { DatabaseService } from '../services/database.service';
+import { DatabaseService } from '../../services/database.service';
 
-import { UsersProps } from '../types/types';
+import { UsersProps } from '../../types/types';
 
 @Component({
   selector: 'app-user-list',
