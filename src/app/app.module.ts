@@ -16,6 +16,7 @@ import { ClientPageComponent } from './pages/clients/client-page.component';
 import { ProductsPageComponent } from './pages/products/products-page.component';
 import { NavigationProductsComponent } from './components/navigation-products/navigation-products.component';
 import { ProductCardComponent } from './components/product-card/product-card.component';
+import { ModalProductsComponent } from './components/modal-products/modal-products.component';
 
 // page componentes shall be used as import modules for
 // a better code visualization and understanding
@@ -32,7 +33,8 @@ import { ProductCardComponent } from './components/product-card/product-card.com
     HomePageComponent,
     ClientPageComponent,
     ProductsPageComponent,
-    NavigationProductsComponent
+    NavigationProductsComponent,
+    ModalProductsComponent
   ],
   imports: [
     BrowserModule,

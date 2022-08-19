@@ -1,19 +1,16 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-modal-basic',
+  selector: 'app-modal-products',
   template: `
     <div class="mainBackgroundDiv" (click)="close();">
       <div class="modalDiv" (click)="show(); $event.stopPropagation();">
         <div class="modalTitle">
-          <h2>Products List</h2><button class="closeButton" (click)="close()">X</button>
+          <h2>Product</h2><button class="closeButton" (click)="close()">X</button>
         </div>
-        <div *ngFor="let product of products" class="productInfo">
-          <p>Type : {{product.name}}</p>
-          <p>Cost : {{product.limit}}</p>
-          <p>Quantity : {{product.term}}</p>
-          <p>Delivered : {{product.isActive}}</p>
-        </div>
+        <form>
+          
+        </form>
       </div>
     </div>
   `,
@@ -85,13 +82,14 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   }
   `]
 })
-export class ModalBasicComponent implements OnInit {
+export class ModalProductsComponent implements OnInit {
 
   // event emitters to handle the modal showing in another component
 
   @Output() showFalse = new EventEmitter();
   @Output() showTrue = new EventEmitter();
-  @Input() products = [{ name: '', limit: 0, term: 0, isActive: false }];
+
+  @Input() selectedProduct : any;
 
   constructor() { }
 

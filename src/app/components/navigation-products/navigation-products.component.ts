@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { DatabaseService } from 'src/app/services/database.service';
 
 @Component({
   selector: 'app-navigation-products',
   template: `
     <nav class="productsNavigation">
-        <input style="margin-left: 1em" placeholder="user@email.com">
-        <button class="navigationButton">Search Products</button>
+        <input #input (change)="inputValue(input.value)" style="margin-left: 1em" placeholder="user@email.com">
+        <button (click)="userProducts(email)" class="navigationButton">Search Products</button>
     </nav>
   `,
   styles: [`
@@ -31,7 +32,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationProductsComponent implements OnInit {
 
-  constructor() { }
+  email: any;
+  products: any;
+
+  @Output() productsValue = new EventEmitter()
+
+  constructor(private service: DatabaseService) {
+
+  }
+
+  inputValue(value: any) {
+    this.email = value
+  }
+
+  userProducts(email: string) {
+    console.log(email)
+    this.service.usersPurchases(email).subscribe((response: any) => {
+      this.products = response.products
+      this.productsValue.emit(this.products)
+    })
+  }
 
   ngOnInit(): void {
   }

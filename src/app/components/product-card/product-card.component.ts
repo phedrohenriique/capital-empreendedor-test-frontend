@@ -1,18 +1,19 @@
 import {
   Component,
+  EventEmitter,
   Input,
-  OnInit
+  OnInit,
+  Output
 } from '@angular/core';
 
 @Component({
   selector: 'app-product-card',
   template: `
-  <div class="mainDiv">
-    <h3>Product</h3>
+  <div class="mainDiv" (click)="showModal()">
     <div class="infoList">
-      <h5>Name : aaaaaaaaaaaaaa </h5>
-      <h5>Email : aaaaaaaaaaaaa </h5>
-      <h5>Phone : aaaaaaaaaaaaa</h5>
+      <h5>Name : {{product.name}} </h5>
+      <h5>Cost : {{product.limit}} </h5>
+      <h5>Status : {{product.isActive ? "Finished" : "Pending"}}</h5>
     </div>
   </div>
   `,
@@ -30,10 +31,16 @@ import {
         width:fit-content;
     }
 
+    .mainDiv:hover{
+      transform: scale(1.1);
+      transition: 0.5s;
+      cursor: pointer;
+    }
+
     .infoList {
         display: flex;
         flex-direction:column;
-        align-items:center;
+        align-items:flex-start;
         justify-content: flex-start;
     }
 
@@ -41,8 +48,18 @@ import {
   ]
 })
 export class ProductCardComponent implements OnInit {
+
   
+  @Output() show = new EventEmitter()
+  @Output() selectedProduct = new EventEmitter()
+  @Input() product: any;
+
   constructor() {
+  }
+
+  showModal(){
+    this.show.emit(true)
+    this.selectedProduct.emit(this.product)
   }
 
   ngOnInit(): void {
