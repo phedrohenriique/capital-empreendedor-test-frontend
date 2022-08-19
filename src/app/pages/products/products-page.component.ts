@@ -11,7 +11,7 @@ import { DatabaseService } from 'src/app/services/database.service';
           <app-navigation-products></app-navigation-products>
         <div>
         <div class="productsList">
-          <app-product-card></app-product-card>
+          <app-product-card *ngFor="let product of products"></app-product-card>
         </div>
       </div>
     </div>
@@ -35,13 +35,17 @@ import { DatabaseService } from 'src/app/services/database.service';
     align-items:center;
     justify-content:center;
     width: 80vw;
-    height: 80vh;
+    min-height: 80vh;
     background-color: white;
     border-radius: 2em;
     padding: 0.5em;
   }
 
   .productsList {
+    flex-wrap: wrap;
+    display:flex;
+    flex-direction:row;
+    gap:1em;
     height:fit-content;
     width:100%;
     padding: 1em;
@@ -54,11 +58,17 @@ import { DatabaseService } from 'src/app/services/database.service';
 })
 export class ProductsPageComponent implements OnInit {
 
-  userList: any;
+  products: any = [1, 2, 3, 4, 5, 6, 7];
 
-  constructor(private service : DatabaseService) {
+  constructor(private service: DatabaseService) {
 
-   }
+  }
+
+  userProducts(email: string) {
+    this.service.usersPurchases(email).subscribe((response: any) => {
+      this.products = response.products
+    })
+  }
 
   ngOnInit(): void {
 
