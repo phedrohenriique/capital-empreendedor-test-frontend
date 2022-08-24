@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { DatabaseService } from '../../services/database.service';
 
-import { UsersProps } from '../../types/types';
+import { UsersListProps } from '../../types/types';
 
 @Component({
   selector: 'app-user-list',
@@ -9,9 +9,8 @@ import { UsersProps } from '../../types/types';
   <div class="mainDiv">
     <h2 class="title">Clients List Record</h2>
     <div *ngFor="let user of users" class="userInfo" (click)="clicked(user)">
-        <p>Name : {{user.name}} </p>
-        <p>Email : {{user.email}}</p>
-        <p>Phone : {{user.phone}}</p>
+        <p>ID : {{user.id}} </p>
+        <p>CPF : {{user.cpf}}</p>
     </div>
   </div>
 `,
@@ -49,7 +48,7 @@ import { UsersProps } from '../../types/types';
         background-color: white;
         height: fit-content;
         width: 90%;
-        font-size: 0.75em;
+        font-size: 1em;
     }
 
     .userInfo:hover{
@@ -63,7 +62,7 @@ import { UsersProps } from '../../types/types';
 export class UserListComponent implements OnInit {
   // this is where we can implement javascript logic
 
-  users: UsersProps = [{ name: '', email: '', isActive: false, phone: '', ravenue: 0, agreedTerms: false }];
+  users: UsersListProps = [{ id: 0, name: '', email: '', phone: '', cpf: '' }];
   purchases: any;
 
   // use auxiliary variables to manipulate fetch data from server

@@ -1,24 +1,27 @@
-export type UsersProps = {
-    name: string
+export type UsersListProps = {
+    id: number,
+    name: string,
     email: string,
-    isActive: boolean,
     phone: string,
-    ravenue: number,
-    agreedTerms: boolean
+    cpf: string
 }[]
 
-export type User = {
-    name: string
+export type UserProps = {
+    id: number,
+    name: string,
     email: string,
-    isActive: boolean,
     phone: string,
-    ravenue: number,
-    agreedTerms: boolean
+    cpf: string
 }
 
-export type PurchasesProps = {
-    name: string,
-    limit: number,
-    term: number,
-    isActive: boolean
+export type PurchaseProps = {
+    purchase_id: number,
+    user_id: number,
+    products: []
+}
+
+export type PurchasesListProps = {
+    purchase_id: number,
+    user_id: number,
+    products: []
 }[]

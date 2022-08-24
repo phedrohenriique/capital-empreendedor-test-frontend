@@ -4,45 +4,46 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'
 import { router } from './app.router';
 
+// it is important to organize the whole application in modules
+// so the code stays clean and readable, it can be done in the
+// NgModule() class within the root 
+
 import { AppComponent } from './app.component';
-import { UserCardComponent } from './components/user-card/user-card.component';
-import { UserListComponent } from './components/user-list/user-list.component';
+import { ClientsModule } from './modules/clients/clients.module';
+import { ProductsModule } from './modules/products/products.module';
 import { NavigationMenuComponent } from './components/navigation-menu/navigation-menu.component';
-import { SingleFileComponent } from './components/single-file/single-file.component';
-import { ModalBasicComponent } from './components/modal-basic/modal-basic.component';
 import { DatabaseService } from './services/database.service';
-import { HomePageComponent } from './pages/home/home-page.component';
-import { ClientPageComponent } from './pages/clients/client-page.component';
-import { ProductsPageComponent } from './pages/products/products-page.component';
-import { NavigationProductsComponent } from './components/navigation-products/navigation-products.component';
-import { ProductCardComponent } from './components/product-card/product-card.component';
-import { ModalProductsComponent } from './components/modal-products/modal-products.component';
 
 // page componentes shall be used as import modules for
 // a better code visualization and understanding
 
 @NgModule({
   declarations: [
+
+    // components, directives, pipes
+
     AppComponent,
-    UserCardComponent,
-    ProductCardComponent,
-    UserListComponent,
     NavigationMenuComponent,
-    SingleFileComponent,
-    ModalBasicComponent,
-    HomePageComponent,
-    ClientPageComponent,
-    ProductsPageComponent,
-    NavigationProductsComponent,
-    ModalProductsComponent
   ],
   imports: [
+
+    // other modules that we shall be using
+    // they can be used inside other components
+
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    router
+    router,
+    ClientsModule,
+    ProductsModule
   ],
-  providers: [DatabaseService],
-  bootstrap: [AppComponent]
+  providers: [
+
+    // global application scope, all services that
+    // can be used in the whole application
+
+    DatabaseService
+  ],
+  bootstrap: [AppComponent] // root component that shall be executed by the application (SPA)
 })
 export class AppModule { }

@@ -21,9 +21,11 @@ import {
 
         </div>
         <ul class="infoList">
-            <li>Name : {{userData.name}}</li>
-            <li>Email : {{userData.email}}</li>
-            <li>Phone : {{userData.phone}}</li>
+            <li>ID : {{userData.id}}</li>
+            <li>NAME : {{userData.name}}</li>
+            <li>EMAIL : {{userData.email}}</li>
+            <li>PHONE : {{userData.phone}}</li>
+            <li>CPF : {{userData.cpf}}</li>
         </ul>
         <div  class="products" (click)="showModal(true)">
           <h2>Products</h2>

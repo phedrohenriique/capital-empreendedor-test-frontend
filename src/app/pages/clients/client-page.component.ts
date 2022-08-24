@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User, PurchasesProps } from 'src/app/types/types';
+import { UserProps, PurchasesListProps } from 'src/app/types/types';
 
 @Component({
   selector: 'app-client-page',
@@ -52,8 +52,8 @@ export class ClientPageComponent implements OnInit {
   // app root component is handling all the variables so it can pass to other components and
   // update its data, sinc it is a simple application
 
-  userData: User = { name: '', email: '', isActive: false, phone: '', ravenue: 0, agreedTerms: false };
-  purchaseData: PurchasesProps = [{ name: '', limit: 0, term: 0, isActive: false }];
+  userData: UserProps = { id: 0, name: '', email: '', phone: '', cpf: '' };
+  purchaseData: PurchasesListProps = [{ user_id: 0, purchase_id: 0, products: [] }];
   showCard: boolean = false;
 
   constructor() {

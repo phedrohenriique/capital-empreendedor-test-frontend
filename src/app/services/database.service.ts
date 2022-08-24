@@ -22,14 +22,14 @@ export class DatabaseService implements OnInit {
         return this.http.get(`${this.apiURL}/purchases`)
     }
 
-    usersInfo(email: string) {
-        const data = { email: email }
-        return this.http.post(`${this.apiURL}/users/user`, data)
+    usersInfo(id: string) {
+        const userId = id
+        return this.http.get(`${this.apiURL}/users/user/${userId}`)
     }
 
-    usersPurchases(email: string) {
-        const data = { email: email }
-        return this.http.post(`${this.apiURL}/purchases/user`, data)
+    usersPurchases(id: string) {
+        const userId = id
+        return this.http.get(`${this.apiURL}/purchases/user/${userId}`)
     }
 
     ngOnInit(): void {
