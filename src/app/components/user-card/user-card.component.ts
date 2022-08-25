@@ -17,9 +17,6 @@ import {
     </app-modal-basic>
     <h2 class="title">Client Information</h2>
     <div *ngIf="showCard" class="userCard">
-        <div class="photo">
-
-        </div>
         <ul class="infoList">
             <li>ID : {{userData.id}}</li>
             <li>NAME : {{userData.name}}</li>

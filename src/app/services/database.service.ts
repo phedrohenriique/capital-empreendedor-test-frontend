@@ -32,6 +32,17 @@ export class DatabaseService implements OnInit {
         return this.http.get(`${this.apiURL}/purchases/user/${userId}`)
     }
 
+    createUser(data: any) {
+        const newUser = data
+        return this.http.post(`${this.apiURL}/users/create`, newUser)
+    }
+
+    editUser(data: any, id: any) {
+        const userId = id
+        const updatedUser = data
+        return this.http.patch(`${this.apiURL}/users/user/${userId}`, updatedUser)
+    }
+    
     ngOnInit(): void {
     }
 

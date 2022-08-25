@@ -7,9 +7,10 @@ import { UsersListProps } from '../../types/types';
   selector: 'app-user-list',
   template: `
   <div class="mainDiv">
-    <h2 class="title">Clients List Record</h2>
+    <h2 class="title">Users List Record</h2>
     <div *ngFor="let user of users" class="userInfo" (click)="clicked(user)">
         <p>ID : {{user.id}} </p>
+        <p>NAME: {{user.name}}</p>
         <p>CPF : {{user.cpf}}</p>
     </div>
   </div>
@@ -43,7 +44,7 @@ import { UsersListProps } from '../../types/types';
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: space-around;
+        justify-content: flex-start;
         gap: 1em;
         background-color: white;
         height: fit-content;

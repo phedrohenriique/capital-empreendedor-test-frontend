@@ -9,10 +9,12 @@ import { router } from './app.router';
 // NgModule() class within the root 
 
 import { AppComponent } from './app.component';
+import { DatabaseService } from './services/database.service';
 import { ClientsModule } from './modules/clients/clients.module';
 import { ProductsModule } from './modules/products/products.module';
+import { RegisterModule } from './modules/register/register.module';
 import { NavigationMenuComponent } from './components/navigation-menu/navigation-menu.component';
-import { DatabaseService } from './services/database.service';
+import { ModalFormComponent } from './components/modal-form/modal-form.component';
 
 // page componentes shall be used as import modules for
 // a better code visualization and understanding
@@ -24,6 +26,7 @@ import { DatabaseService } from './services/database.service';
 
     AppComponent,
     NavigationMenuComponent,
+    ModalFormComponent,
   ],
   imports: [
 
@@ -35,7 +38,8 @@ import { DatabaseService } from './services/database.service';
     HttpClientModule,
     router,
     ClientsModule,
-    ProductsModule
+    ProductsModule,
+    RegisterModule
   ],
   providers: [
 

@@ -1,11 +1,3 @@
-export type UsersListProps = {
-    id: number,
-    name: string,
-    email: string,
-    phone: string,
-    cpf: string
-}[]
-
 export type UserProps = {
     id: number,
     name: string,
@@ -14,6 +6,14 @@ export type UserProps = {
     cpf: string
 }
 
+export type UsersListProps = {
+    id: number,
+    name: string,
+    email: string,
+    phone: string,
+    cpf: string
+}[]
+
 export type PurchaseProps = {
     purchase_id: number,
     user_id: number,
@@ -21,6 +21,12 @@ export type PurchaseProps = {
 }
 
 export type PurchasesListProps = {
+    purchase_id: number,
+    user_id: number,
+    products: []
+}[]
+
+export type PurchasesUserList = {
     purchase_id: number,
     user_id: number,
     products: []
