@@ -1,15 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-products-page',
+  selector: 'app-user-page',
   template: `
-    <div class="mainProductsDiv">
-      <div class="mainProductsContentDiv">
+    <div class="mainUsersDiv">
+      <div class="mainUsersContentDiv">
+        <app-input-basic 
+        inputLabel="asdads"
+        inputPlaceholder="aasdeeeee"
+        >
+      </app-input-basic>
       </div>
     </div>
   `,
   styles: [`
-    .mainProductsDiv {
+    .mainUsersDiv {
       display:flex;
       flex-direction: row;
       align-items: center;
@@ -18,7 +23,7 @@ import { Component, OnInit } from '@angular/core';
       height: 100%;
     }
 
-    .mainProductsContentDiv {
+    .mainUsersContentDiv {
       display:flex;
       flex-direction: row;
       align-items: center;
@@ -31,14 +36,16 @@ import { Component, OnInit } from '@angular/core';
     
   `]
 })
-export class ProductsPageComponent implements OnInit {
+
+export class UsersPageComponent implements OnInit {
+
+  // app root component is handling all the variables so it can pass to other components and
+  // update its data, sinc it is a simple application
 
   constructor() {
-
   }
 
   ngOnInit(): void {
-
   }
 
 }

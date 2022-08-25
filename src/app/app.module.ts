@@ -10,11 +10,8 @@ import { router } from './app.router';
 
 import { AppComponent } from './app.component';
 import { DatabaseService } from './services/database.service';
-import { ClientsModule } from './modules/clients/clients.module';
-import { ProductsModule } from './modules/products/products.module';
-import { RegisterModule } from './modules/register/register.module';
-import { NavigationMenuComponent } from './components/navigation-menu/navigation-menu.component';
-import { ModalFormComponent } from './components/modal-form/modal-form.component';
+import { PagesModule } from './modules/pages/pages.module';
+import { ComponentsModule } from './modules/components/components.module';
 
 // page componentes shall be used as import modules for
 // a better code visualization and understanding
@@ -24,9 +21,8 @@ import { ModalFormComponent } from './components/modal-form/modal-form.component
 
     // components, directives, pipes
 
-    AppComponent,
-    NavigationMenuComponent,
-    ModalFormComponent,
+    AppComponent
+
   ],
   imports: [
 
@@ -37,9 +33,9 @@ import { ModalFormComponent } from './components/modal-form/modal-form.component
     FormsModule,
     HttpClientModule,
     router,
-    ClientsModule,
-    ProductsModule,
-    RegisterModule
+    PagesModule,
+    ComponentsModule
+
   ],
   providers: [
 

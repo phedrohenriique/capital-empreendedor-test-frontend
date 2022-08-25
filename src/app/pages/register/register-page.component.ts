@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { DatabaseService } from 'src/app/services/database.service';
 
 @Component({
   selector: 'app-register',
@@ -7,7 +6,7 @@ import { DatabaseService } from 'src/app/services/database.service';
     <div class="mainRegisterDiv">
       <div class="registerContentDiv">
         <div class="registerUserDiv">
-
+          <app-input-basic></app-input-basic>
         </div>
         <div>
           

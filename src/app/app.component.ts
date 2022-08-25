@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
 
+// app main control elements, the outlet and other divs shall start their composition
+// all components will have an outer baisc div, the body has 100vw and 100vh dimensions
+
 @Component({
   selector: 'app',
   template: `
-  <div class="mainAppDiv" style="background-color: #EE7517;">
+  <div class="mainAppDiv">
       <div class="mainNavigationDiv">
-        <app-navigation-menu></app-navigation-menu>
+        <app-navigation-basic></app-navigation-basic>
       </div>
       <div class="mainOutletDiv">
         <router-outlet>
@@ -17,18 +20,20 @@ import { Component } from '@angular/core';
   .mainAppDiv {
     display: flex;
     flex-direction: column;
-    gap: 1em;
-    min-height: 100%;
-    width: 100%;
+    align-items:center;
+    justify-content:center;
+    width: 100vw;
+    height: 100vh;
+    background-color: #EE7517
   }
 
   .mainNavigationDiv {
-    width: 100%;
-    height: 20%;
+    min-width: 100%;
+    min-height: 20%;
   }
 
   .mainOutletDiv {
-    width: 100%;
+    min-width: 100%;
     min-height: 80%;
   }
 
