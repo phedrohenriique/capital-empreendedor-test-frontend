@@ -4,7 +4,7 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
   selector: 'app-input-basic',
   template: `
     <div class="mainComponentDiv">
-        <label [for]="this.inputId">{{this.inputLabel}}</label>
+        <label class="inputLabel" [for]="this.inputId">{{this.inputLabel}}</label>
         <input 
         #input 
         (change)="inputValue(input.value)" 
@@ -18,18 +18,21 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
   
   .mainComponentDiv{
     display:flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
     gap:0.5em;
-    width: fit-content;
+    width: 100%;
 
+  }
+
+  .inputLabel{
   }
 
   `]
 })
 export class InputBasicComponent implements OnInit {
-  value: any;
+  inputData: any;
 
   @Input() inputType? : string = '';
   @Input() inputLabel? : string = '';
@@ -41,7 +44,7 @@ export class InputBasicComponent implements OnInit {
   }
 
   inputValue(value: any) {
-    this.value = value
+    this.inputData = value
   }
 
   ngOnInit(): void {
