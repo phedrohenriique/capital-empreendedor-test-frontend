@@ -1,18 +1,16 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, ContentChild, EventEmitter, Input, OnInit, Output, TemplateRef } from '@angular/core';
 
 @Component({
   selector: 'app-modal-basic',
   template: `
     <div class="mainBackgroundDiv" (click)="close();">
-      <div class="modalDiv" (click)="show(); $event.stopPropagation();">
+      <div class="mainComponentDiv" (click)="show(); $event.stopPropagation();">
         <div class="modalTitle">
-          <h2>Products List</h2><button class="closeButton" (click)="close()">X</button>
+          <h2>{{this.modalTitle}}</h2><button class="closeButton" (click)="close()">X</button>
         </div>
-        <div *ngFor="let product of products" class="productInfo">
-          <p>Type : {{product.name}}</p>
-          <p>Cost : {{product.limit}}</p>
-          <p>Quantity : {{product.term}}</p>
-          <p>Delivered : {{product.isActive}}</p>
+        <div>
+          <ng-content>
+          </ng-content>
         </div>
       </div>
     </div>
@@ -34,23 +32,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
     
   }
 
-  .modalTitle {
-    display:flex;
-    flex-direction: row;
-    align-items:center;
-    justify-content:center;
-    gap:1em;
-    width: 100%;
-  }
-
-  .closeButton {
-    position:relative;
-    top:0px;
-    right:0px;
-    left: 250px;
-  }
-
-  .modalDiv {
+  .mainComponentDiv {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -65,33 +47,34 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
     -webkit-transition: -webkit-transform 0.25s ease-in;
   }
 
-  .productInfo {
-    /* background-color: #EE7517; */
-    border: 2px solid #EE7517;
-    border-radius: 2em;
-    display: flex;
+  .modalTitle {
+    display:flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    gap: 2em;
-    padding: 0.5em;
+    align-items:center;
+    justify-content:center;
+    gap:1em;
     width: 100%;
   }
 
-  .productInfo:hover {
-    transition: 0.5s;
-    transform: scale(1.05);
-    cursor: pointer;
+  .closeButton {
+    position:relative;
+    top:0px;
+    right:0px;
+    left: 250px;
+    border: none;
   }
+  
   `]
 })
 export class ModalBasicComponent implements OnInit {
 
   // event emitters to handle the modal showing in another component
+  // modal component shall be showed with the ngIf pipe in other pages
+  // or components
 
+  @Input() modalTitle: string = '';
   @Output() showFalse = new EventEmitter();
   @Output() showTrue = new EventEmitter();
-  @Input() products = [{ name: '', limit: 0, term: 0, isActive: false }];
 
   constructor() { }
 

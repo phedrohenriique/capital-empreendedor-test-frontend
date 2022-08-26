@@ -4,12 +4,21 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-user-page',
   template: `
     <div class="mainUsersDiv">
+      <app-modal-basic 
+      *ngIf="this.showModal" 
+      (showFalse)="this.showModal=$event"
+      (showTrue)="this.showModal=$event"
+      modalTitle="Titulo"
+      >
+      <div #template>asdadasdsada</div>
+    </app-modal-basic>
       <div class="mainUsersContentDiv">
         <app-input-basic 
         inputLabel="asdads"
         inputPlaceholder="aasdeeeee"
         >
       </app-input-basic>
+      <button (click)="this.showModal = true">Testing Modal</button>
       </div>
     </div>
   `,
@@ -41,6 +50,8 @@ export class UsersPageComponent implements OnInit {
 
   // app root component is handling all the variables so it can pass to other components and
   // update its data, sinc it is a simple application
+
+  showModal: boolean = false;
 
   constructor() {
   }
