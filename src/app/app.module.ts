@@ -21,7 +21,7 @@ import { ComponentsModule } from './modules/components/components.module';
 
     // components, directives, pipes
 
-    AppComponent
+    AppComponent,
 
   ],
   imports: [

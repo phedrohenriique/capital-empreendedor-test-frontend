@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ComponentsModule } from '../components/components.module';
 import { HomePageComponent } from 'src/app/pages/home/home-page.component';
@@ -24,7 +25,8 @@ import { ProductsPageComponent } from 'src/app/pages/products/products-page.comp
 
   imports: [
     CommonModule,
-    ComponentsModule
+    ComponentsModule,
+    FormsModule
   ],
 
   // list of avaiable modules that can be used for other modules in the application

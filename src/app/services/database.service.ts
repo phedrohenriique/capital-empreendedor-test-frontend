@@ -1,5 +1,6 @@
 import { Injectable, OnInit } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
+import { take } from "rxjs";
 
 @Injectable({
     providedIn: 'root'
@@ -40,7 +41,7 @@ export class DatabaseService implements OnInit {
     editUser(data: any, id: any) {
         const userId = id
         const updatedUser = data
-        return this.http.patch(`${this.apiURL}/users/user/${userId}`, updatedUser)
+        return this.http.patch(`${this.apiURL}/users/user/${userId}`, updatedUser).pipe(take(1))
     }
     
     ngOnInit(): void {

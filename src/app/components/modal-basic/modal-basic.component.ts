@@ -44,7 +44,7 @@ import { Component, ContentChild, EventEmitter, Input, OnInit, Output, TemplateR
     border-radius: 10px;
     gap: 1em;
 
-    -webkit-transition: -webkit-transform 0.25s ease-in;
+    animation: fadein 0.25s;
   }
 
   .modalTitle {
@@ -62,6 +62,16 @@ import { Component, ContentChild, EventEmitter, Input, OnInit, Output, TemplateR
     right:0px;
     left: 250px;
     border: none;
+  }
+
+  @keyframes fadein {
+    from {  opacity: 0; }
+    to {  opacity: 1; }
+  }
+
+  @keyframes fadeout {
+    from {  opacity: 1; }
+    to {  opacity: 0; }
   }
   
   `]
