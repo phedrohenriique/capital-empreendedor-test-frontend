@@ -8,10 +8,8 @@ import { Component, ContentChild, EventEmitter, Input, OnInit, Output, TemplateR
         <div class="modalTitle">
           <h2>{{this.modalTitle}}</h2><button class="closeButton" (click)="close()">X</button>
         </div>
-        <div>
           <ng-content>
           </ng-content>
-        </div>
       </div>
     </div>
   `,
@@ -61,7 +59,7 @@ import { Component, ContentChild, EventEmitter, Input, OnInit, Output, TemplateR
     top:0px;
     right:0px;
     left: 250px;
-    border: none;
+    border: 2px solid #EE7517;
   }
 
   @keyframes fadein {
@@ -82,6 +80,7 @@ export class ModalBasicComponent implements OnInit {
   // modal component shall be showed with the ngIf pipe in other pages
   // or components
 
+  @Input() data: any;
   @Input() modalTitle: string = '';
   @Output() showFalse = new EventEmitter();
   @Output() showTrue = new EventEmitter();

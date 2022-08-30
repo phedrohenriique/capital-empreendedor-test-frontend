@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DatabaseService } from 'src/app/services/database.service';
+import { ProductProps } from 'src/app/types/types';
 
 // ngModel is updating the value from the element in a two way,
 // can manipulate it after sending data through the service
@@ -12,14 +13,22 @@ import { DatabaseService } from 'src/app/services/database.service';
       *ngIf="this.showModal" 
       (showFalse)="this.showModal=$event"
       (showTrue)="this.showModal=$event"
-      modalTitle="Titulo"
+      modalTitle="Purchases List"
       >
+      <div class="purchasesList">
+        <app-list-item-basic class="purchaseInfo" *ngFor="let purchase of this.userPurchaseList">
+        <p>PURCHASE ID : {{purchase.purchase_id}} </p>
+        <p>PURCHASE ITEMS : </p>
+        <p *ngFor="let product of purchase.products">{{product.name}},</p>
+        </app-list-item-basic>
+      </div>
     </app-modal-basic>
     <app-toast-success *ngIf="this.showToastSuccess"></app-toast-success>
     <app-toast-failure *ngIf="this.showToastFailure"></app-toast-failure>
       <div class="mainUsersContentDiv">
         <div class="usersList">  
-          <app-list-item-basic *ngFor="let user of usersList" class="usersListComponent">
+          <h2>Users List</h2>
+          <app-list-item-basic (click)="userPurchaseListRequest(user.id)" *ngFor="let user of usersList" class="usersListComponent">
           <p>ID : {{user.id}} </p>
           <p>CPF : {{user.cpf}}</p>
           </app-list-item-basic>
@@ -75,7 +84,23 @@ import { DatabaseService } from 'src/app/services/database.service';
       background-color: white;
       border-radius: 1em;
     }
+
+    .purchasesList{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:flex-start;
+      height:90%;
+      width:90%;
+      padding:0.5em;
+      gap: 1em;
+    }
     
+    .purchaseInfo{
+      height: 10%;
+      width: 100%;
+    }
+
     .usersList {
       display:flex;
       flex-direction:column;
@@ -97,7 +122,7 @@ import { DatabaseService } from 'src/app/services/database.service';
       display:flex;
       flex-direction:column;
       align-items:center;
-      justify-content:space-around;
+      justify-content:flex-start;
       height:90%;
       width:40%;
       padding:0.5em;
@@ -135,8 +160,8 @@ import { DatabaseService } from 'src/app/services/database.service';
       display: flex;
       flex-direction: row;
       align-items:center;
-      justify-content: space-around;
-      width: 100%;
+      justify-content: flex-start;
+      width: 90%;
     }
 
     .button {
@@ -159,6 +184,7 @@ export class UsersPageComponent implements OnInit {
   showToastSuccess: boolean = false;
   showToastFailure: boolean = false;
   usersList!: Array<any>;
+  userPurchaseList!: Array<{ purchase_id: number, user_id: number, products: Array<ProductProps> }>;
 
   constructor(private service: DatabaseService) {
   }
@@ -183,6 +209,7 @@ export class UsersPageComponent implements OnInit {
         this.showToastSuccess = true;
         setTimeout(() => {
           this.showToastSuccess = false;
+          window.location.reload() // method that refreshes the page
         }, 2000)
         this.name = ''
         this.email = ''
@@ -202,6 +229,18 @@ export class UsersPageComponent implements OnInit {
         this.cpf = ''
       }
     })
+  }
+
+  userPurchaseListRequest(userId: any) {
+    this.showModal = true
+    this.service.usersPurchases(userId).subscribe({
+      next: (response: any) => { console.log(response); this.userPurchaseList = response },
+      error: (error) => { console.log(error); this.userPurchaseList = [] }
+    })
+  }
+
+  userPurchaseTotalCost(purchaseProducts: any) {
+
   }
 
   ngOnInit(): void {

@@ -31,3 +31,10 @@ export type PurchasesUserList = {
     user_id: number,
     products: []
 }[]
+
+export type ProductProps = {
+    product_id: number,
+    name: string,
+    cost: number,
+    quantity: number
+}
