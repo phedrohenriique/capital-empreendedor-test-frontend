@@ -112,8 +112,9 @@ import { ProductProps } from 'src/app/types/types';
       border-radius: 1em;
       border: 2px solid #EE7517;
       gap: 1em;
+      overflow-y: auto;
     }
-
+    
     .usersListComponent{
       width: 90%;
     }
