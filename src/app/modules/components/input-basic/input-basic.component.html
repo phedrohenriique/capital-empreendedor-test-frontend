@@ -1,0 +1,5 @@
+<div class="mainComponentDiv">
+    <label class="inputLabel" [for]="this.inputId">{{this.inputLabel}}</label>
+    <input #input (change)="inputValue(input.value)" [placeholder]="this.inputPlaceholder" [id]="this.inputId"
+        [type]="this.inputType" #child>
+</div>

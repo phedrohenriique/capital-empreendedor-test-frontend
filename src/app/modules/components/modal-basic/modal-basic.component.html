@@ -1,0 +1,9 @@
+<div class="mainBackgroundDiv" (click)="close();">
+    <div class="mainComponentDiv" (click)="show(); $event.stopPropagation();">
+        <div class="modalTitle">
+            <h2>{{this.modalTitle}}</h2><button class="closeButton" (click)="close()">X</button>
+        </div>
+        <ng-content>
+        </ng-content>
+    </div>
+</div>
