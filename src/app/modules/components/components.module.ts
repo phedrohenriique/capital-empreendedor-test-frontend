@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { InputBasicComponent } from 'src/app/components/input-basic/input-basic.component';
-import { ModalBasicComponent } from 'src/app/components/modal-basic/modal-basic.component';
-import { NavigationBasicComponent } from 'src/app/components/navigation-basic/navigation-basic.component';
-import { ToastFailureComponent } from 'src/app/components/toast-failure/toast-failure.component';
-import { ToastSuccessComponent } from 'src/app/components/toast-success/toast-success.component';
-import { ListItemBasicComponent } from 'src/app/components/list-item-basic/list-item-basic.component';
+import { InputBasicComponent } from 'src/app/modules/components/input-basic/input-basic.component';
+import { ModalBasicComponent } from './modal-basic/modal-basic.component';
+import { NavigationBasicComponent } from './navigation-basic/navigation-basic.component';
+import { ToastSuccessComponent } from './toast-success/toast-success.component';
+import { ToastFailureComponent } from './toast-failure/toast-failure.component';
+import { ListItemBasicComponent } from './list-item-basic/list-item-basic.component';
 
 // this module since it is just the components template
 // it only uses declarations array to be able to export then in

@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ComponentsModule } from '../components/components.module';
-import { HomePageComponent } from 'src/app/pages/home/home-page.component';
-import { UsersPageComponent } from 'src/app/pages/users/users-page.component';
-import { ProductsPageComponent } from 'src/app/pages/products/products-page.component';
+import { HomePageComponent } from './home/home-page.component';
+import { UsersPageComponent } from './users/users-page.component';
+import { ProductsPageComponent } from './products/products-page.component';
 
 
 

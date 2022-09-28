@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'
-import { router } from './app.router';
+import { AppRoutingModule } from './app.router';
 
 // it is important to organize the whole application in modules
 // so the code stays clean and readable, it can be done in the
@@ -32,7 +32,7 @@ import { ComponentsModule } from './modules/components/components.module';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    router,
+    AppRoutingModule,
     PagesModule,
     ComponentsModule
 

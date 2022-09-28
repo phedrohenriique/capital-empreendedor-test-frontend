@@ -1,0 +1,50 @@
+<div class="mainUsersDiv">
+    <app-modal-basic *ngIf="this.showModal" (showFalse)="this.showModal=$event" (showTrue)="this.showModal=$event"
+        modalTitle="Purchases List">
+        <div class="purchasesList">
+            <app-list-item-basic class="purchaseInfo" *ngFor="let purchase of this.userPurchaseList">
+                <p>PURCHASE ID : {{purchase.purchase_id}} </p>
+                <p>PURCHASE ITEMS : </p>
+                <p *ngFor="let product of purchase.products">{{product.name}},</p>
+            </app-list-item-basic>
+        </div>
+    </app-modal-basic>
+    <app-toast-success *ngIf="this.showToastSuccess"></app-toast-success>
+    <app-toast-failure *ngIf="this.showToastFailure"></app-toast-failure>
+    <div class="mainUsersContentDiv">
+        <div class="usersList">
+            <h2>Users List</h2>
+            <app-list-item-basic (click)="userPurchaseListRequest(user.id)" *ngFor="let user of usersList"
+                class="usersListComponent">
+                <p>ID : {{user.id}} </p>
+                <p>CPF : {{user.cpf}}</p>
+            </app-list-item-basic>
+        </div>
+        <div class="usersRegister">
+            <h2>User Regiser</h2>
+            <form #formUser="ngForm" (ngSubmit)="addUser(formUser)" class="usersForm">
+                <div class="usersInput">
+                    <div class="inputDiv">
+                        <label>NAME :</label>
+                        <input #nameInput required [(ngModel)]="this.name" name="name" placeholder="First Second Name">
+                    </div>
+                    <div class="inputDiv">
+                        <label>EMAIL :</label>
+                        <input required [(ngModel)]="this.email" name="email" placeholder="user@mail.com">
+                    </div>
+                    <div class="inputDiv">
+                        <label>PHONE :</label>
+                        <input required [(ngModel)]="this.phone" name="phone" placeholder="(99) 99999-9999">
+                    </div>
+                    <div class="inputDiv">
+                        <label>CPF :</label>
+                        <input required [(ngModel)]="this.cpf" name="cpf" placeholder="999.999.999-99">
+                    </div>
+                </div>
+                <div class="buttonDiv">
+                    <button class="button" type="submit">Add User</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
